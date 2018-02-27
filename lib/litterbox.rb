@@ -1,5 +1,5 @@
-require "litterbox/version"
+require 'litterbox/version'
 
+# Top level module for Litterbox
 module Litterbox
-  # Your code goes here...
 end

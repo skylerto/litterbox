@@ -1,7 +1,6 @@
 # Litterbox
 
-Some of the bits around the edge of Habitat, that I wish were available
-natively.
+Some of the bits around the edge of Habitat, that I wish were available natively.
 
 ## Installation
 
