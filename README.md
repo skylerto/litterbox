@@ -1,5 +1,7 @@
 # Litterbox
 
+[![Build Status](https://travis-ci.org/skylerto/litterbox.svg?branch=master)](https://travis-ci.org/skylerto/litterbox)
+
 Some of the bits around the edge of Habitat, that I wish were available natively.
 
 ## Installation
