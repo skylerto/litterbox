@@ -3,7 +3,8 @@ RSpec.describe Litterbox do
     expect(Litterbox::VERSION).not_to be nil
   end
 
-  it 'does something useful' do
-    expect(false).to eq(true)
+  it 'parses a last_build' do
+    path = "#{File.dirname(__FILE__)}/last_build_test.env"
+    last_build = Litterbox.last_build(path)
   end
 end
