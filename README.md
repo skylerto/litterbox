@@ -41,6 +41,19 @@ hab = Litterbox::Habitat::Upload.new(
 hab.upload
 ```
 
+### Promote
+
+```
+channel = 'stable'
+hab = Litterbox::Habitat::Promote.new(
+  last_build.pkg_ident,
+  channel,
+  ENV['HAB_AUTH_TOKEN']
+)
+
+hab.promote
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
