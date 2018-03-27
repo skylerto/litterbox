@@ -5,3 +5,7 @@ rvm:
 before_install:
   - gem install bundler -v 1.16.1
   - curl https://raw.githubusercontent.com/habitat-sh/habitat/master/components/hab/install.sh | sudo bash
+  - mkdir -p ~/.hab/cache/keys
+  - echo $HAB_PUB >> skylerto-20180220124055.pub
+  - echo $HAB_KEY >> skylerto-20180220124055.sig.key
+
