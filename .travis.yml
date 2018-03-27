@@ -6,6 +6,17 @@ before_install:
   - gem install bundler -v 1.16.1
   - curl https://raw.githubusercontent.com/habitat-sh/habitat/master/components/hab/install.sh | sudo bash
   - mkdir -p ~/.hab/cache/keys
-  - echo $HAB_PUB >> skylerto-20180220124055.pub
+  - cat << EOF > ~/.hab/cache/keys/skylerto-20180220124055.pub
+    SIG-PUB-1
+    skylerto-20180220124055
+
+    $HAB_PUB
+    EOF
   - echo $HAB_KEY >> skylerto-20180220124055.sig.key
+  - cat << EOF > ~/.hab/cache/keys/skylerto-20180220124055.sig.key
+    SIG-SEC-1
+    skylerto-20180220124055
+
+    $HAB_KEY
+    EOF
 
