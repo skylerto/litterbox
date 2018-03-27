@@ -6,7 +6,6 @@ RSpec.describe Litterbox do
   it 'parses a last_build.env file' do
     path = "#{File.dirname(__FILE__)}/last_build_test.env"
     last_build = Litterbox.last_build(path)
-    expect(last_build)
 
     expect(last_build.pkg_origin).to eql 'skylerto'
     expect(last_build.pkg_name).to eql 'tests'
