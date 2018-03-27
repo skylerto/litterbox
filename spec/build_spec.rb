@@ -1,13 +1,6 @@
 RSpec.describe Litterbox::Habitat::Build do
-  before(:each) do
-    download_hab_plan
-  end
-
-  after(:each) do
-    cleanup_hab_plan
-  end
-
   it 'builds a habitat package' do
+    download_hab_plan
     hab = Litterbox::Habitat::Build.new(plan_dir)
     hab.build
     last_build = Litterbox.last_build("#{plan_dir}/results/last_build.env")
@@ -20,5 +13,6 @@ RSpec.describe Litterbox::Habitat::Build do
     expect(last_build.pkg_artifact).not_to be nil
     expect(last_build.pkg_sha256sum).not_to be nil
     expect(last_build.pkg_blake2bsum).not_to be nil
+    cleanup_hab_plan
   end
 end
