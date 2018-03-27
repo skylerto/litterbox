@@ -1,5 +1,6 @@
-require 'litterbox/version'
+require 'litterbox/habitat'
 require 'litterbox/last_build'
+require 'litterbox/version'
 
 # Top level module for Litterbox
 module Litterbox

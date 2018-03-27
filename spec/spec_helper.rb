@@ -46,4 +46,8 @@ def download_hab_plan
     puts `rm -rf #{download_path}`
     puts `rm -rf #{destination_path}`
   end
+
+  def plan_dir
+    destination_path = "#{File.dirname(__FILE__)}/plan/sample-node-app-master"
+  end
 end
