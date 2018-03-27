@@ -50,7 +50,6 @@ hab = Litterbox::Habitat::Promote.new(
   channel,
   ENV['HAB_AUTH_TOKEN']
 )
-
 hab.promote
 ```
 
