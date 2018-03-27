@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env sh
+
+mkdir -p ~/.hab/cache/keys
 
 cat << EOF > ~/.hab/cache/keys/skylerto-20180220124055.pub
 SIG-PUB-1

@@ -5,5 +5,4 @@ rvm:
 before_install:
   - gem install bundler -v 1.16.1
   - curl https://raw.githubusercontent.com/habitat-sh/habitat/master/components/hab/install.sh | sudo bash
-  - mkdir -p ~/.hab/cache/keys
   - ./install_keys.sh
