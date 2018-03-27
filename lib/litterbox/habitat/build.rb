@@ -9,7 +9,7 @@ module Litterbox
       end
 
       def build(dir = '.')
-        Open3.popen3("cd #{@dir} && hab pkg build #{dir}") do |_, stderr, _, _|
+        Open3.popen3("cd #{@dir} && sudo hab pkg build #{dir}") do |_, stderr, _, _|
           while (line = stderr.gets)
             puts(line)
           end
