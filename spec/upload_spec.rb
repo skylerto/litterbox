@@ -1,5 +1,5 @@
 RSpec.describe Litterbox::Habitat::Build do
-  it 'builds a habitat package' do
+  it 'uploads a habitat package' do
     download_hab_plan
     hab = Litterbox::Habitat::Build.new(plan_dir)
     hab.build
@@ -12,7 +12,8 @@ RSpec.describe Litterbox::Habitat::Build do
       ENV['HAB_AUTH_TOKEN']
     )
 
-    hab.upload
+    expect(hab.upload.exitstatus).to eq 0
+
     cleanup_hab_plan
   end
 end
