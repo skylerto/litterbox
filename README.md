@@ -22,12 +22,23 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Build
 
 ```
 hab = Litterbox::Habitat::Build.new(plan_dir)
 hab.build
 last_build = Litterbox.last_build("#{plan_dir}/results/last_build.env")
+```
+
+### Upload
+
+```
+hab = Litterbox::Habitat::Upload.new(
+  File.join(plan_dir, 'results', last_build.pkg_artifact),
+  ENV['HAB_AUTH_TOKEN']
+)
+
+hab.upload
 ```
 
 ## Development
