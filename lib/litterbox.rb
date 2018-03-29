@@ -32,6 +32,22 @@ module Litterbox
       ).upload
     end
 
+    desc 'export EXPORTER', 'export a package via exporter'
+    def export(exporter = 'docker')
+      path ||= find_last_build
+      raise "Could not find last_build.env in #{locations}" unless path
+
+      path = File.join(LAST_BUILD) unless path.include?(LAST_BUILD)
+      last_build = Litterbox.last_build(
+        path
+      )
+
+      Litterbox::Habitat::Export.new(
+        File.join(plan_dir, 'results', last_build.pkg_artifact),
+        exporter
+      ).upload
+    end
+
     private
 
     def find_last_build

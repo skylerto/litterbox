@@ -1,4 +1,5 @@
 require_relative './habitat/build'
+require_relative './habitat/export'
 require_relative './habitat/promote'
 require_relative './habitat/upload'
 
