@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     litterbox (0.1.0)
+      thor (~> 0.20.0)
 
 GEM
   remote: https://rubygems.org/
