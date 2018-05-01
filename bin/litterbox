@@ -2,4 +2,4 @@
 
 require 'litterbox'
 
-Litterbox::CLI.start( ARGV )
+Litterbox::CLI.start(ARGV)

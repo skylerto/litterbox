@@ -14,7 +14,7 @@ module Litterbox
         raise 'must pass auth token' unless auth
         cmd = "hab pkg upload #{pkg} -z #{auth}"
         puts cmd
-        Open3.popen3(cmd) do |err, out, _, thr|
+        Open3.popen3(cmd) do |_, out, _, thr|
           while (line = out.gets)
             puts(line)
           end

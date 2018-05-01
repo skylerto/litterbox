@@ -26,6 +26,7 @@ module Litterbox
       plan_dir = path.dup
       plan_dir.slice! LAST_BUILD
       artifact = File.join(plan_dir, last_build.pkg_artifact)
+
       Litterbox::Habitat::Upload.new(
         artifact,
         ENV['HAB_AUTH_TOKEN']
@@ -55,7 +56,6 @@ module Litterbox
         File.join('.', 'results'),
         File.join('habitat', 'results')
       ]
-      exists = {}
       locations.each do |loc|
         return loc if File.exist?(File.join(loc, LAST_BUILD))
       end
