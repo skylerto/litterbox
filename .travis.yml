@@ -3,7 +3,9 @@ language: ruby
 rvm:
   - 2.5.0
 before_install:
-  - gem install bundler -v 1.16.1
-  - bundle install
+  - sudo gem install bundler -v 1.16.1
+  - sudo bundle install
   - curl https://raw.githubusercontent.com/habitat-sh/habitat/master/components/hab/install.sh | sudo bash
-  - ./install_keys.sh
+  - sudo ./install_keys.sh
+
+script: sudo bundle exec rake
