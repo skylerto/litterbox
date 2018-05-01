@@ -1,5 +1,3 @@
-require 'open3'
-
 module Litterbox
   module Habitat
     # Habitat package operations
@@ -10,17 +8,17 @@ module Litterbox
         @name = name
       end
 
+      def install(name = @name)
+        Litterbox::Command.exec(
+          "hab pkg install #{name}"
+        )
+      end
+
       def exec(command)
-        cmd = "hab pkg exec #{@name} #{command}"
-        Open3.popen3(cmd) do |_, stdout, stderr, thr|
-          while (line = stderr.gets)
-            puts(line)
-          end
-          while (line = stdout.gets)
-            puts(line)
-          end
-          return thr
-        end
+        install
+        Litterbox::Command.exec(
+          "hab pkg exec #{@name} #{command}"
+        )
       end
 
       def upload(pkg, auth)

@@ -1,5 +1,6 @@
 require 'thor'
 
+require 'litterbox/command'
 require 'litterbox/habitat'
 require 'litterbox/last_build'
 require 'litterbox/version'
