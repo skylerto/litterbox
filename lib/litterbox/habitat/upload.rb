@@ -11,7 +11,10 @@ module Litterbox
 
       def upload(pkg = @pkg, auth = @auth)
         raise 'file artifact not found' unless File.exist?(pkg)
-        Open3.popen3("hab pkg upload #{pkg} -z #{auth}") do |_, out, _, thr|
+        raise 'must pass auth token' unless auth
+        cmd = "hab pkg upload #{pkg} -z #{auth}"
+        puts cmd
+        Open3.popen3(cmd) do |err, out, _, thr|
           while (line = out.gets)
             puts(line)
           end

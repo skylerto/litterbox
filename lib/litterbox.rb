@@ -17,17 +17,17 @@ module Litterbox
     end
 
     desc 'upload PATH', 'upload the latest build'
-    def upload(path)
-      path ||= find_last_build
+    def upload(path = find_last_build)
       raise "Could not find last_build.env in #{locations}" unless path
-
-      path = File.join(LAST_BUILD) unless path.include?(LAST_BUILD)
+      path = File.join(path, LAST_BUILD) unless path.include?(LAST_BUILD)
       last_build = Litterbox.last_build(
         path
       )
-
+      plan_dir = path.dup
+      plan_dir.slice! LAST_BUILD
+      artifact = File.join(plan_dir, last_build.pkg_artifact)
       Litterbox::Habitat::Upload.new(
-        File.join(plan_dir, 'results', last_build.pkg_artifact),
+        artifact,
         ENV['HAB_AUTH_TOKEN']
       ).upload
     end
@@ -57,9 +57,8 @@ module Litterbox
       ]
       exists = {}
       locations.each do |loc|
-        exists[loc] = File.exist?(File.join(loc, LAST_BUILD))
+        return loc if File.exist?(File.join(loc, LAST_BUILD))
       end
-      exists.select { |_, v| v }.first
     end
   end
 
