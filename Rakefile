@@ -4,7 +4,7 @@ require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new(:spec)
 
 task :rubocop do
-  sh 'rubocop spec/package_spec.rb'
+  sh 'rubocop'
 end
 
 task default: %i[rubocop spec]
