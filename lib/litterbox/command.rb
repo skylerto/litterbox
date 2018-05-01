@@ -3,6 +3,7 @@ module Litterbox
   module Command
     class << self
       def exec(cmd)
+        cmd = "sudo #{cmd}" if ENV['USE_SUDO']
         Open3.popen3(cmd) do |_, stdout, stderr, thr|
           while (line = stderr.gets)
             puts(line)
