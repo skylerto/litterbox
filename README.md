@@ -2,7 +2,8 @@
 
 [![Build Status](https://travis-ci.org/skylerto/litterbox.svg?branch=master)](https://travis-ci.org/skylerto/litterbox)
 
-Some of the bits around the edge of Habitat, that I wish were available natively.
+Habitat bindings in Ruby!
+
 
 ## Installation
 
@@ -21,6 +22,8 @@ Or install it yourself as:
     $ gem install litterbox
 
 ## Usage
+
+For API specific usage read the [docs](http://skylerlayne.me/litterbox/)
 
 ### Build
 
