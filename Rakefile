@@ -5,7 +5,7 @@ require 'yard'
 RSpec::Core::RakeTask.new(:spec)
 
 YARD::Rake::YardocTask.new do |t|
- t.files   = ['lib/**/*.rb']   # optional
+  t.files = ['lib/**/*.rb']
 end
 
 task :rubocop do
