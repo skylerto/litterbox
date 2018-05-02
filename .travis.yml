@@ -9,3 +9,8 @@ before_install:
   - bundle install
   - curl https://raw.githubusercontent.com/habitat-sh/habitat/master/components/hab/install.sh | sudo bash
   - ./install_keys.sh
+
+stages:
+  - name: deploy
+    if: branch = master
+    script: bundle exec rake release
