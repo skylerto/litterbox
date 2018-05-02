@@ -12,16 +12,26 @@ module Litterbox
 
     def run_command
       Open3.popen3(@cmd) do |_, out, err, thr|
-        while (line = err.gets)
-          @stderr << line unless line.nil?
-          puts(line) if @log
-        end
-        while (lines = out.gets)
-          @stdout << lines unless lines.nil?
-          puts(lines) if @log
-        end
+        capture_stderr err
+        capture_stdout out
         @process = thr.value
         return @stdout, @stderr, @process
+      end
+    end
+
+    private
+
+    def capture_stderr(err)
+      while (line = err.gets)
+        @stderr << line unless line.nil?
+        puts(line) if @log
+      end
+    end
+
+    def capture_stdout(out)
+      while (lines = out.gets)
+        @stdout << lines unless lines.nil?
+        puts(lines) if @log
       end
     end
   end
