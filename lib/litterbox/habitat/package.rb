@@ -9,16 +9,12 @@ module Litterbox
       end
 
       def install(name = @name)
-        Litterbox::Command.exec(
-          "hab pkg install #{name}"
-        )
+        exec_cmd "hab pkg install #{name}"
       end
 
       def exec(command)
         install
-        Litterbox::Command.exec(
-          "hab pkg exec #{@name} #{command}"
-        )
+        exec_cmd "hab pkg exec #{@name} #{command}"
       end
 
       def upload(pkg, auth)
@@ -34,9 +30,17 @@ module Litterbox
       end
 
       def demote(pkg_ident, channel, auth = ENV['HAB_AUTH_TOKEN'])
-        Litterbox::Command.exec(
-          "hab pkg demote #{pkg_ident} #{channel} -z #{auth}"
+        exec_cmd "hab pkg demote #{pkg_ident} #{channel} -z #{auth}"
+      end
+
+      private
+
+      def exec_cmd(command)
+        cmd = Litterbox::Command.new(
+          command
         )
+        cmd.run_command
+        cmd
       end
     end
   end
