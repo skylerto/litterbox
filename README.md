@@ -32,6 +32,9 @@ last_build = Litterbox.last_build("#{plan_dir}/results/last_build.env")
 
 ### Upload
 
+Currently, the upload needs to be done on the platform that it's being built
+from. This is due to a bit of a habitat bug see [habitat-sh/habitat/issues/5010](https://github.com/habitat-sh/habitat/issues/5010)
+
 ```
 hab = Litterbox::Habitat::Upload.new(
   File.join(plan_dir, 'results', last_build.pkg_artifact),
