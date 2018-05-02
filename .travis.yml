@@ -2,9 +2,6 @@ sudo: true
 language: ruby
 rvm:
   - 2.5.0
-env:
-  - USE_SUDO: true
-  - LITTERBOX_LOG: true
 before_install:
   - gem install bundler -v 1.16.1
   - bundle install
