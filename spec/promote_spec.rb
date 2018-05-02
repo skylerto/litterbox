@@ -20,6 +20,21 @@ RSpec.describe Litterbox::Habitat::Promote do
     )
 
     expect(hab.promote.exitstatus).to eq 0
+  end
+
+  it 'demotes a habitat package' do
+    last_build = Litterbox.last_build("#{plan_dir}/results/last_build.env")
+
+    channel = 'stable'
+    hab = Litterbox::Habitat::Package.new("#{last_build.pkg_origin}/#{last_build.pkg_name}")
+
+    cmd = hab.demote(
+      last_build.pkg_ident,
+      channel,
+      ENV['HAB_AUTH_TOKEN']
+    )
+
+    expect(cmd.process.exitstatus).to eq 0
 
     cleanup_hab_plan
   end
