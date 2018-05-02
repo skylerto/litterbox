@@ -26,6 +26,18 @@ module Litterbox
           pkg, auth
         ).upload
       end
+
+      def promote(pkg_ident, channel, auth = ENV['HAB_AUTH_TOKEN'])
+        Litterbox::Habitat::Promote.new(
+          pkg_ident, channel, auth
+        ).promote
+      end
+
+      def demote(pkg_ident, channel, auth = ENV['HAB_AUTH_TOKEN'])
+        Litterbox::Command.exec(
+          "hab pkg demote #{pkg_ident} #{channel} -z #{auth}"
+        )
+      end
     end
   end
 end
