@@ -2,7 +2,8 @@
 
 [![Build Status](https://travis-ci.org/skylerto/litterbox.svg?branch=master)](https://travis-ci.org/skylerto/litterbox)
 
-Some of the bits around the edge of Habitat, that I wish were available natively.
+Habitat bindings in Ruby!
+
 
 ## Installation
 
@@ -22,6 +23,8 @@ Or install it yourself as:
 
 ## Usage
 
+For API specific usage read the [docs](http://skylerlayne.me/litterbox/)
+
 ### Build
 
 ```
@@ -31,6 +34,9 @@ last_build = Litterbox.last_build("#{plan_dir}/results/last_build.env")
 ```
 
 ### Upload
+
+Currently, the upload needs to be done on the platform that it's being built
+from. This is due to a bit of a habitat bug see [habitat-sh/habitat/issues/5010](https://github.com/habitat-sh/habitat/issues/5010)
 
 ```
 hab = Litterbox::Habitat::Upload.new(
