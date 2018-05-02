@@ -1,21 +1,26 @@
 module Litterbox
   # CLI Command operations
-  module Command
-    class << self
-      def exec(cmd)
-        out, err = ''
-        cmd = "sudo #{cmd}" if ENV['USE_SUDO']
-        Open3.popen3(cmd) do |_, stdout, stderr, thr|
-          while (line = stderr.gets)
-            err << line
-            puts(line)
-          end
-          while (line = stdout.gets)
-            out << line
-            puts(line)
-          end
-          return out, err, thr
+  class Command
+    attr_accessor :stdout, :stderr, :process
+    def initialize(cmd)
+      @cmd = cmd
+      @cmd = "sudo #{@cmd}" if ENV['USE_SUDO']
+      @stdout = ''
+      @stderr = ''
+    end
+
+    def run_command
+      Open3.popen3(@cmd) do |_, out, err, thr|
+        while (line = err.gets)
+          @stderr << line unless line.nil?
+          puts(line)
         end
+        while (lines = out.gets)
+          @stdout << lines unless lines.nil?
+          puts(lines)
+        end
+        @process = thr.value
+        return @stdout, @stderr, @process
       end
     end
   end
