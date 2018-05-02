@@ -6,6 +6,7 @@ RSpec::Core::RakeTask.new(:spec)
 
 YARD::Rake::YardocTask.new do |t|
   t.files = ['lib/**/*.rb']
+  t.options = ['--output-dir', 'docs']
 end
 
 task :rubocop do

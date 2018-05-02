@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Class: Litterbox::Habitat::Export
+  Class: Litterbox::Habitat::Promote
   
     &mdash; Documentation by YARD 0.9.12
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  pathId = "Litterbox::Habitat::Export";
+  pathId = "Litterbox::Habitat::Promote";
   relpath = '../../';
 </script>
 
@@ -36,10 +36,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="../../_index.html">Index (E)</a> &raquo;
+    <a href="../../_index.html">Index (P)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../../Litterbox.html" title="Litterbox (module)">Litterbox</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Habitat.html" title="Litterbox::Habitat (module)">Habitat</a></span></span>
      &raquo; 
-    <span class="title">Export</span>
+    <span class="title">Promote</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Class: Litterbox::Habitat::Export
+      <div id="content"><h1>Class: Litterbox::Habitat::Promote
   
   
   
@@ -74,7 +74,7 @@
         <ul class="fullTree">
           <li>Object</li>
           
-            <li class="next">Litterbox::Habitat::Export</li>
+            <li class="next">Litterbox::Habitat::Promote</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -94,7 +94,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/litterbox/habitat/export.rb</dd>
+    <dd>lib/litterbox/habitat/promote.rb</dd>
   </dl>
   
 </div>
@@ -128,7 +128,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(pkg, exporter = &#39;docker&#39;)  &#x21d2; Export </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(pkg_ident, channel, auth)  &#x21d2; Promote </a>
     
 
     
@@ -145,7 +145,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A new instance of Export.</p>
+<p>A new instance of Promote.</p>
 </div></span>
   
 </li>
@@ -154,7 +154,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#upload-instance_method" title="#upload (instance method)">#<strong>upload</strong>(pkg = @pkg, exporter = @exporter)  &#x21d2; Object </a>
+      <a href="#promote-instance_method" title="#promote (instance method)">#<strong>promote</strong>(pkg_ident = @pkg_ident, channel = @channel, auth = @auth)  &#x21d2; Object </a>
     
 
     
@@ -182,7 +182,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(pkg, exporter = &#39;docker&#39;)  &#x21d2; <tt><span class='object_link'><a href="" title="Litterbox::Habitat::Export (class)">Export</a></span></tt> 
+    #<strong>initialize</strong>(pkg_ident, channel, auth)  &#x21d2; <tt><span class='object_link'><a href="" title="Litterbox::Habitat::Promote (class)">Promote</a></span></tt> 
   
 
   
@@ -191,7 +191,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns a new instance of Export</p>
+<p>Returns a new instance of Promote</p>
 
 
   </div>
@@ -208,14 +208,16 @@
 7
 8
 9
-10</pre>
+10
+11</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/litterbox/habitat/export.rb', line 7</span>
+      <pre class="code"><span class="info file"># File 'lib/litterbox/habitat/promote.rb', line 7</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_pkg'>pkg</span><span class='comma'>,</span> <span class='id identifier rubyid_exporter'>exporter</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>docker</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
-  <span class='ivar'>@pkg</span> <span class='op'>=</span> <span class='id identifier rubyid_pkg'>pkg</span>
-  <span class='ivar'>@exporter</span> <span class='op'>=</span> <span class='id identifier rubyid_exporter'>exporter</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_pkg_ident'>pkg_ident</span><span class='comma'>,</span> <span class='id identifier rubyid_channel'>channel</span><span class='comma'>,</span> <span class='id identifier rubyid_auth'>auth</span><span class='rparen'>)</span>
+  <span class='ivar'>@pkg_ident</span> <span class='op'>=</span> <span class='id identifier rubyid_pkg_ident'>pkg_ident</span>
+  <span class='ivar'>@channel</span> <span class='op'>=</span> <span class='id identifier rubyid_channel'>channel</span>
+  <span class='ivar'>@auth</span> <span class='op'>=</span> <span class='id identifier rubyid_auth'>auth</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -230,9 +232,9 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="upload-instance_method">
+  <h3 class="signature first" id="promote-instance_method">
   
-    #<strong>upload</strong>(pkg = @pkg, exporter = @exporter)  &#x21d2; <tt>Object</tt> 
+    #<strong>promote</strong>(pkg_ident = @pkg_ident, channel = @channel, auth = @auth)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -244,7 +246,6 @@
       <pre class="lines">
 
 
-12
 13
 14
 15
@@ -252,14 +253,15 @@
 17
 18
 19
-20</pre>
+20
+21</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/litterbox/habitat/export.rb', line 12</span>
+      <pre class="code"><span class="info file"># File 'lib/litterbox/habitat/promote.rb', line 13</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_upload'>upload</span><span class='lparen'>(</span><span class='id identifier rubyid_pkg'>pkg</span> <span class='op'>=</span> <span class='ivar'>@pkg</span><span class='comma'>,</span> <span class='id identifier rubyid_exporter'>exporter</span> <span class='op'>=</span> <span class='ivar'>@exporter</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>file artifact not found</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_exist?'>exist?</span><span class='lparen'>(</span><span class='id identifier rubyid_pkg'>pkg</span><span class='rparen'>)</span>
-  <span class='const'>Open3</span><span class='period'>.</span><span class='id identifier rubyid_popen3'>popen3</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>hab pkg export </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_exporter'>exporter</span><span class='embexpr_end'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_pkg'>pkg</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid__'>_</span><span class='comma'>,</span> <span class='id identifier rubyid_out'>out</span><span class='comma'>,</span> <span class='id identifier rubyid__'>_</span><span class='comma'>,</span> <span class='id identifier rubyid_thr'>thr</span><span class='op'>|</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_promote'>promote</span><span class='lparen'>(</span><span class='id identifier rubyid_pkg_ident'>pkg_ident</span> <span class='op'>=</span> <span class='ivar'>@pkg_ident</span><span class='comma'>,</span> <span class='id identifier rubyid_channel'>channel</span> <span class='op'>=</span> <span class='ivar'>@channel</span><span class='comma'>,</span> <span class='id identifier rubyid_auth'>auth</span> <span class='op'>=</span> <span class='ivar'>@auth</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_command'>command</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>hab pkg promote </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_pkg_ident'>pkg_ident</span><span class='embexpr_end'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span class='tstring_content'> -z </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_auth'>auth</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='const'>Open3</span><span class='period'>.</span><span class='id identifier rubyid_popen3'>popen3</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid__'>_</span><span class='comma'>,</span> <span class='id identifier rubyid_out'>out</span><span class='comma'>,</span> <span class='id identifier rubyid__'>_</span><span class='comma'>,</span> <span class='id identifier rubyid_thr'>thr</span><span class='op'>|</span>
     <span class='kw'>while</span> <span class='lparen'>(</span><span class='id identifier rubyid_line'>line</span> <span class='op'>=</span> <span class='id identifier rubyid_out'>out</span><span class='period'>.</span><span class='id identifier rubyid_gets'>gets</span><span class='rparen'>)</span>
       <span class='id identifier rubyid_puts'>puts</span><span class='lparen'>(</span><span class='id identifier rubyid_line'>line</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
@@ -276,7 +278,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed May  2 10:27:28 2018 by
+  Generated on Wed May  2 10:27:51 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.12 (ruby-2.5.0).
 </div>
