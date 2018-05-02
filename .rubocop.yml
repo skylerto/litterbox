@@ -2,5 +2,12 @@
 AllCops:
   Exclude:
     - 'vendor/**/*'
-    - 'spec/**/*'
+    - 'spec/**/*.rb'
     - 'tmp/**/*'
+
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/LineLength:
+  Max: 120
+

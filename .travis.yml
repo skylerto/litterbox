@@ -1,8 +1,11 @@
-sudo: false
+sudo: true
 language: ruby
 rvm:
   - 2.5.0
+env:
+  - USE_SUDO: true
 before_install:
   - gem install bundler -v 1.16.1
+  - bundle install
   - curl https://raw.githubusercontent.com/habitat-sh/habitat/master/components/hab/install.sh | sudo bash
   - ./install_keys.sh
