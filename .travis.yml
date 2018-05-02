@@ -11,10 +11,6 @@ before_install:
   - ./install_keys.sh
 
 stages:
-  - name: lint
-    script: bundle exec rake rubocop
-  - name: spec
-    script: bundle exec rake spec
   - name: deploy
     if: branch = master
     script: bundle exec rake release
