@@ -30,5 +30,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'rubocop', '~> 0.52.1'
   spec.add_development_dependency 'rubyzip', '~> 1.2.1'
+  spec.add_development_dependency 'yard'
   spec.add_dependency 'thor', '~> 0.20.0'
 end
