@@ -13,7 +13,7 @@ RSpec.describe Litterbox::Habitat::Package do
     expect(hab.upload.exitstatus).to eq 0
 
     channel = 'unstable'
-    hab = Litterbox::Habitat::Package.new
+    hab = Litterbox::Habitat::Package.new("#{last_build.pkg_origin}/#{last_build.pkg_name}")
 
     out, err, thr = hab.demote(
       last_build.pkg_ident,

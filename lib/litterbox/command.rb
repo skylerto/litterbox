@@ -7,12 +7,12 @@ module Litterbox
         cmd = "sudo #{cmd}" if ENV['USE_SUDO']
         Open3.popen3(cmd) do |_, stdout, stderr, thr|
           while (line = stderr.gets)
-            err << line
+            err << line unless line.nil?
             puts(line)
           end
-          while (line = stdout.gets)
-            out << line
-            puts(line)
+          while (lines = stdout.gets)
+            out << lines unless lines.nil?
+            puts(lines)
           end
           return out, err, thr
         end
