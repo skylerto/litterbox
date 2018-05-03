@@ -8,7 +8,14 @@ before_install:
   - curl https://raw.githubusercontent.com/habitat-sh/habitat/master/components/hab/install.sh | sudo bash
   - ./install_keys.sh
 
-stages:
-  - name: deploy
-    if: branch = master
-    script: bundle exec rake release
+jobs:
+  include:
+    - stage: gem release
+      if: branch = master
+      rvm: 2.5.0
+      script: echo "Deploying to rubygems.org ..."
+      deploy:
+        provider: rubygems
+        gem: litterbox
+        api_key: $RUBYGEMS_API_KEY
+        on: master
