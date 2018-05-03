@@ -1,6 +1,7 @@
 # Litterbox
 
 [![Build Status](https://travis-ci.org/skylerto/litterbox.svg?branch=master)](https://travis-ci.org/skylerto/litterbox)
+[![Coverage Status](https://coveralls.io/repos/github/skylerto/litterbox/badge.svg?branch=master)](https://coveralls.io/github/skylerto/litterbox?branch=master)
 
 Habitat bindings in Ruby!
 
