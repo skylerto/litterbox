@@ -1,5 +1,8 @@
 require 'bundler/setup'
+require 'coveralls'
 require 'litterbox'
+
+Coveralls.wear!
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
