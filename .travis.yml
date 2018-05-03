@@ -19,3 +19,13 @@ jobs:
         gem: litterbox
         api_key: $RUBYGEMS_API_KEY
         on: master
+    - stage: GitHub Release
+      if: branch = master
+      rvm: 2.5.0
+      script: echo "Deploying to GitHub releases ..."
+      deploy:
+        provider: releases
+        api_key: $GITHUB_OAUTH_TOKEN
+        skip_cleanup: true
+        on:
+          tags: true
