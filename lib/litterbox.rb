@@ -46,6 +46,11 @@ EOF
       Litterbox::Habitat::Build.new(path).build
     end
 
+    desc 'version', 'print the version of litterbox'
+    def version
+      puts Litterbox::VERSION
+    end
+
     desc 'upload PATH', 'upload the latest build'
     def upload(path = find_last_build)
       raise "Could not find last_build.env in #{locations}" unless path
