@@ -34,5 +34,6 @@ jobs:
       script:
          - |
            echo "Deploying to bldr.habitat.sh ..."
-           ruby ./bin/litterbox build
-           ruby ./bin/litterbox upload
+           gem install litterbox
+           litterbox build
+           litterbox upload
