@@ -2,6 +2,7 @@ require 'thor'
 
 require 'litterbox/command'
 require 'litterbox/habitat'
+require 'litterbox/profiles'
 require 'litterbox/last_build'
 require 'litterbox/version'
 
@@ -11,10 +12,43 @@ module Litterbox
   LAST_BUILD = 'last_build.env'.freeze
 
   # CLI for litterbox
+  class ProfileSubcommand < Thor
+    desc 'list', 'list profiles'
+    def list
+      puts Litterbox::Habitat::Profiles.read
+    end
+
+    desc 'set PROFILE', 'Get the configuration'
+    def set(profile = nil)
+      if profile.nil?
+        puts <<-EOF
+To set the profile execute the following:
+
+eval "$(litterbox profile set <profile>)"
+
+E.g.
+eval "$(litterbox profile set default)"
+
+EOF
+      else
+        puts Litterbox::Habitat::Profiles.set(profile)
+      end
+    end
+  end
+
+  # CLI for litterbox
   class CLI < Thor
+    desc 'profile SUBCOMMAND ...ARGS', 'Manages habitat builder profiles'
+    subcommand 'profile', ProfileSubcommand
+
     desc 'build PATH', 'build a package at the given path defaults to .'
     def build(path = '.')
       Litterbox::Habitat::Build.new(path).build
+    end
+
+    desc 'version', 'print the version of litterbox'
+    def version
+      puts Litterbox::VERSION
     end
 
     desc 'upload PATH', 'upload the latest build'

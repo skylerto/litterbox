@@ -27,6 +27,32 @@ Or install it yourself as:
 
 For API specific usage read the [docs](http://skylerlayne.me/litterbox/)
 
+### Profiles
+
+A profile essential is a development concept for Habitat, it was born out of the need for multiple habitat depots.
+
+To use profiles, you'll need to drop a config file `~/.litterbox` with the following example content
+
+```
+profile = "default"
+
+[on-prem]
+origin = "<o-prem origin>"
+auth_token = "<on-prem auth_token>"
+bldr_url = "<on-prem url>"
+
+[default]
+origin = "<my origin>"
+auth_token = "<auth_token>"
+bldr_url = "https://bldr.habitat.sh"
+```
+
+To switch between profiles execute the following:
+
+```
+eval "$(litterbox profile set on-prem)"
+```
+
 ### Build
 
 ```
