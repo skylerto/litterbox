@@ -34,5 +34,6 @@ jobs:
       script:
          - |
            echo "Deploying to bldr.habitat.sh ..."
+           bundle install
            bundle exec ./bin/litterbox build
            bundle exec ./bin/litterbox upload
