@@ -29,3 +29,10 @@ jobs:
         skip_cleanup: true
         on:
           tags: true
+    - stage: Habitat Release
+      if: branch = master
+      script:
+         - |
+           echo "Deploying to bldr.habitat.sh ..."
+           litterbox build
+           litterbox upload
